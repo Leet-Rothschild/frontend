@@ -13,9 +13,21 @@
     <title>Hello from Electron renderer!</title>
   </head>
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-    <p id="info"></p>
+    <h1>OpenAI API Tools!</h1>
+    <div>
+    <form id="inputText">
+      <label for="inputText">Input text to summarize:</label><br>
+      <textarea name="inputText" rows="5" cols="50"></textarea><br>
+      <input type="submit" value="Submit"><br>
+    </form>
+</div>
+    <br />
+    <div>
+      <label for="summaryText">tl;dr:</label>
+      <br />
+      <textarea id="summaryText" rows="3" cols="50" readonly></textarea>
+    </div>
+    <br />
   </body>
   <script src="./js/renderer.js"></script>
 </html>
