@@ -16,17 +16,19 @@
     <h1>OpenAI API Tools!</h1>
     <div>
     <form id="inputText">
-      <label for="inputText">Input text to summarize:</label><br>
-      <textarea name="inputText" rows="5" cols="50"></textarea><br>
+      <label for="sentence">Input text to summarize:</label><br>
+      <textarea name="sentence" rows="5" cols="50"></textarea><br>
       <input type="submit" value="Submit"><br>
     </form>
 </div>
     <br />
     <div>
+      <form id="outputText">
       <label for="summaryText">tl;dr:</label>
       <br />
       <textarea id="summaryText" rows="3" cols="50" readonly></textarea>
     </div>
+  </form>
     <br />
   </body>
   <script src="./js/renderer.js"></script>
