@@ -1,0 +1,14 @@
+body {
+    background-color: #f8f9fa;
+    color: #6c757d;
+  }
+  
+  .form-control {
+    border-color: #6c757d;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  

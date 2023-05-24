@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>Hello from Electron renderer!</title>
-  </head>
-  <body>
-    <h1>OpenAI API Tools!</h1>
-    <div>
-    <form id="inputText">
-      <label for="sentence">Input text to summarize:</label><br>
-      <textarea name="sentence" rows="5" cols="50"></textarea><br>
-      <input type="submit" value="Submit"><br>
-    </form>
-</div>
-    <br />
-    <div>
-      <form id="outputText">
-      <label for="summaryText">tl;dr:</label>
-      <br />
-      <textarea id="summaryText" rows="3" cols="50" readonly></textarea>
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'"
+  />
+  <meta
+    http-equiv="X-Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'"
+  />
+  <title>IT 121 - Final Project - Alegre!</title>
+  <link href="./css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/app.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="text-muted py-3">OpenAI API Tools!</h1>
+      </div>
     </div>
-  </form>
-    <br />
-  </body>
+    <div class="row">
+      <div class="col-md-12">
+        <form id="inputText">
+          <label for="sentence" class="form-label">Input text to summarize:</label>
+          <textarea class="form-control text-muted" name="sentence" rows="5"></textarea>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <input type="submit" class="btn btn-secondary" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row my-4">
+      <div class="col-md-12">
+        <form id="outputText">
+          <label for="summaryText" class="form-label">tl;dr:</label>
+          <textarea class="form-control text-muted" id="summaryText" rows="3" readonly></textarea>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="./js/renderer.js"></script>
+</body>
 </html>
