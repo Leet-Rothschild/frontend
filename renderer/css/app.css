@@ -1,24 +1,74 @@
-
-.theme-bg-surface{
-  background-color: #F6F1F1 !important;
+.theme-bg-surface {
+  background-color: #cccccc !important;
 }
 
-.theme-bg-primary{
-  background-color: #FFFFFF !important;
+.theme-bg-primary {
+  background-color: #ffffff !important;
+  border: 1px solid #b3b3b3 !important;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.theme-bg-secondary{
-  background-color: #19A7CE !important;
+.theme-bg-secondary {
+  background-color: #808080 !important;
 }
 
-.theme-bg-tertiary{
-  background-color: #146C94 !important;
+.theme-bg-tertiary {
+  background-color: #666666 !important;
 }
 
-.theme-bg-text{
-  color: #146C94 !important;
+.theme-bg-text {
+  color: #333333 !important;
 }
 
-.form-textarea{
+.form-textarea {
   height: 125px !important;
+  background: #ffffff;
+  color: #333333;
+  border: 1px solid #b3b3b3;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.container {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.form-check-input {
+  background-color: #666666 !important;
+  border-color: #808080 !important;
+}
+
+.nav-pills .nav-link {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #808080;
+  color: #ffffff;
+}
+
+.card {
+  background-color: #ffffff !important;
+  color: #333333;
+  border: 1px solid #b3b3b3;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  background-image: linear-gradient(to right, #808080, #666666);
+  border: none;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-image: linear-gradient(to right, #666666, #808080);
+}
+
+.div-background {
+  background-image: url('./path/to/image.jpg');
+  background-size: cover;
+  background-position: center;
 }

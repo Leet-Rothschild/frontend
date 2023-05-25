@@ -7,7 +7,7 @@ const FormData = require('form-data');
 const fs = require('fs');
 
 // Global Variables
-const isDev = true;
+const isDev = false;
 const isMac = process.platform === 'darwin';
 const template = [
   // { role: 'appMenu' }
@@ -183,21 +183,31 @@ async function openAI(event, sentence, tools_type){
     case 'TLDR':
       prompt = "Summarize the text and include a tl;dr at the start :\n\n" + sentence;
       temperature = 0.7;
-      max_tokens = 64;
+      max_tokens = 128;
       break;
     case 'EssayOutline':
       prompt = "Provide an outline for the essay on the topic:\n\n" + sentence;
       temperature = 0.5;
-      max_tokens = 100;
+      max_tokens = 200;
       break;
     case 'MicroHorror':
       prompt = "Create a 2-3 sentences horror story based on the following theme:\n\n" + sentence;
       temperature = 0.8;
-      max_tokens = 50;
+      max_tokens = 150;
       break;
     case 'StudyNotes':
       prompt = "Create study notes for the following topic:\n\n" + sentence;
       temperature = 0.3;
+      max_tokens = 150;
+      break;
+    case 'Product':
+      prompt = "Create product names from examples words.:\n\n" + sentence;
+      temperature = 0.5;
+      max_tokens = 150;
+      break;
+    case 'Restaurant':
+      prompt = "Turn a few words into a restaurant review:\n\n" + sentence;
+      temperature = 0.6;
       max_tokens = 150;
       break;
   }
