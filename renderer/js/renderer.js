@@ -38,8 +38,8 @@ if (form_openai) {
       return;
     }
 
-    if (sentence.length <= 8) {
-      alertMessage("error", "Please input text at least 8 characters or upload image to extract text!");
+    if (sentence.length <= 3) {
+      alertMessage("error", "Please input text at least 3 characters or upload image to extract text!");
       return;
     }
 
@@ -65,7 +65,7 @@ if (form_openai) {
     document.querySelector("#div-result textarea").innerHTML = result.replace(/\n/g, "");
     
     // Store to database the prompt and result
-    const db_response = await window.axios.supaBase('post', '', {
+    const db_response = await window.axios.backendLaravel('post', 'prompts', {
         text: sentence,
         result: result,
         tools_type: tools_type
