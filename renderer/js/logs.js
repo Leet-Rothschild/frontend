@@ -100,36 +100,57 @@ if (btn_logout) {
 }
 
 // Read Prompts from Laravel Backend
-async function getPrompts () {
-    // Fetch API Response
-    const response = await axios.get('/prompts');
-
-    // Load table from API Response
-    let htmlResult = '';
-    response.data.forEach(item => {
+async function getPrompts() {
+    try {
+      // Fetch API Response
+      const token = sessionStorage.getItem('token');
+      const response = await window.axios.backendLaravel('get', 'prompts', null, token);
+  
+      // Check if the response has data
+      if (!response || !Array.isArray(response)) {
+        throw new Error('Invalid response');
+      }
+  
+      // Generate HTML for each prompt
+      let htmlResult = '';
+      response.forEach(item => {
         let date = new Date(item.created_at.replace(' ', 'T'));
-
-        htmlResult += '<tr>' +
-            '<th scope="row">' +  item.prompt_id + '</th>' +
-            '<td>' + item.tools_type + '</td>' +
-            '<td>' + item.text + '</td>' +
-            '<td>' + item.result + '</td>' +
-            '<td>' + date.toLocaleString('en-US', { timeZone: 'UTC' }) + '</td>' +
-            '<td>' + 
-                '<div class="btn-group" role="group">' +
-                    '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">' +
-                        'Action' +
-                    '</button>' +
-                    '<ul class="dropdown-menu">' +
-                        '<li><a id="btn_prompts_del" class="dropdown-item" href="#" name="' + item.prompt_id + '">Remove</a></li>' +
-                    '</ul>' +
-                '</div>' +
-        '</tr>';
-    });
-
-    const tbody = document.getElementById('tbl_prompts');
-    tbody.innerHTML = htmlResult;
-}
+  
+        htmlResult += `
+          <tr>
+            <th scope="row">${item.prompt_id}</th>
+            <td>${item.tools_type}</td>
+            <td>${item.text}</td>
+            <td>${item.result}</td>
+            <td>${date.toLocaleString('en-US', { timeZone: 'UTC' })}</td>
+            <td>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Action
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a id="btn_prompts_del" class="dropdown-item" href="#" name="${item.prompt_id}">Remove</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>`;
+      });
+  
+      const tbody = document.getElementById('tbl_prompts');
+  
+      // Update the table with the generated HTML
+      if (tbody) {
+        tbody.innerHTML = htmlResult;
+      } else {
+        throw new Error('Table element not found');
+      }
+    } catch (error) {
+      // Handle errors and display a message to the user
+      console.error('Failed to fetch prompts:', error);
+      alertMessage('error', 'Failed to fetch prompts. Please try again later.');
+    }
+  }
+  
 
 
 // Set Btn Delete Prompt Click functionality from Table Prompts
