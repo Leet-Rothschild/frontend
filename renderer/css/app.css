@@ -41,7 +41,7 @@
 }
 
 .nav-pills .nav-link {
-  background-color: #ffffff;
+  background-color: #9c9696;
   color: #333333;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .div-background {
-  background-image: url('./path/to/image.jpg');
+  background-image: url('.jpg');
   background-size: cover;
   background-position: center;
 }

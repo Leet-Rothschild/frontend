@@ -89,9 +89,9 @@ const template = [
 // Main Window
 const createWindow = () => {
   const main = new BrowserWindow({
-    width: isDev ? 1200 : 775,
-    height: 800,
-    resizable: false,
+    width: isDev ? 1200 : 950,
+    height: 750,
+    resizable: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
@@ -112,8 +112,8 @@ const createWindow = () => {
 // Application Logs Window
 function logsWindow () {
   const logs = new BrowserWindow({
-    width: 1200,
-    height: 500,
+    width: 750,
+    height: 550,
     alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true,
