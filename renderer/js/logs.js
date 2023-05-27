@@ -171,3 +171,28 @@ if (tbl_prompts) {
         }
     };
 }
+
+// Btn Delete All History
+const btn_delete_all = document.getElementById('btn_delete_all');
+if (btn_delete_all) {
+    btn_delete_all.onclick = async function () {
+        const confirmation = confirm("Are you sure you want to delete all history?");
+        if (!confirmation) {
+            return; // Do nothing if the user cancels the confirmation
+        }
+
+        btn_delete_all.innerHTML = '<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Loading...';
+        btn_delete_all.disabled = true;
+
+        const token = sessionStorage.getItem('token');
+        const response = await window.axios.backendLaravel('delete', 'prompts', null, token);
+
+        console.log(response);
+
+        alertMessage("success", "All history has been deleted!");
+        getPrompts();
+
+        btn_delete_all.innerHTML = 'Delete All History';
+        btn_delete_all.disabled = false;
+    };
+}
