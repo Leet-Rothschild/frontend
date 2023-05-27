@@ -7,7 +7,7 @@ if (btn_extract) {
     const file_types = ['image/png', 'image/bmp', 'image/jpeg'];
     if (!file || !file_types.includes(file['type'])) {
       alertMessage("error", "Please upload an image with (png, bmp, jpeg) format!");
-      return;
+      return; 
     }
 
     btn_extract.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
@@ -15,7 +15,7 @@ if (btn_extract) {
 
     try {
       const response = await window.axios.tesseract(file.path);
-      document.querySelector("textarea[name='sentence-text']").innerHTML = response.text;
+      document.querySelector("textarea[name='sentence-text']").value = response.text;
 
       const selectedImage = document.getElementById("selected-image");
       selectedImage.src = URL.createObjectURL(file);
