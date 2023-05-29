@@ -72,19 +72,21 @@ if (form_openai) {
     let result = response.choices[0].text;
     document.querySelector("#div-result textarea").innerHTML = result.replace(/\n/g, "");
 
-    // Store the prompt and result in the database
-    const db_response = await window.axios.backendLaravel('post', 'prompts', {
-      text: sentence,
-      result: result,
-      tools_type: tools_type
-    });
-    console.log(db_response);
+    const maxLength = 255;
+    const trimmedResult = result.substring(0, maxLength);
+
+// Store the prompt with the trimmed result in the database
+const db_response = await window.axios.backendLaravel('post', 'prompts', {
+  text: sentence,
+  result: trimmedResult,
+  tools_type: tools_type
+});
 
     btn_submit.innerHTML = 'Process Text';
     btn_submit.disabled = false;
   };
 }
-
+ 
 // Alert Message
 function alertMessage(status, sentence) {
   window.Toastify.showToast({

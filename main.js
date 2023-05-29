@@ -7,7 +7,7 @@ const FormData = require('form-data');
 const fs = require('fs');
 
 // Global Variables
-const isDev = true;
+const isDev = false;
 const isMac = process.platform === 'darwin';
 const template = [
   // { role: 'appMenu' }
@@ -112,8 +112,9 @@ const createWindow = () => {
 // Application Logs Window
 function logsWindow () {
   const logs = new BrowserWindow({
-    width: 750,
-    height: 550,
+    width: 500,
+    height: 500,
+    resizable: true,
     alwaysOnTop: false,
     webPreferences: {
       nodeIntegration: true,

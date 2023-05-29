@@ -19,21 +19,26 @@
     <!-- Container -->
     <div class="container theme-bg-primary p-3 mt-3 text-center">
         <div id="div_login" class="card card-body my-5">
-          <img class="w-25 h-25 align-self-center mt-3" src="./images/logo.png">
-          
-          <form id="form_login" class="row g-3 align-self-center my-4">
-            <div class="col-4">
-              <input type="text" class="form-control w-100" name="email" placeholder="Email">
-              <div id="invalid_email" class="invalid-feedback"></div>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-12 col-md-4 mb-3">
+              <img class="background-image" src="./images/background2.jpg" alt="Background Image">
             </div>
-            <div class="col-4">
-              <input type="password" class="form-control w-100" name="password" placeholder="Password">
-              <div id="invalid_password" class="invalid-feedback"></div>
+            <div class="col-12 col-md-4">
+              <form id="form_login" class="row g-3 align-items-center my-4">
+                <div class="col-12">
+                  <input type="text" class="form-control w-100" name="email" placeholder="Email">
+                  <div id="invalid_email" class="invalid-feedback"></div>
+                </div>
+                <div class="col-12">
+                  <input type="password" class="form-control w-100" name="password" placeholder="Password">
+                  <div id="invalid_password" class="invalid-feedback"></div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary mb-3 w-100 fw-bold">Login</button>
+                </div>
+              </form>
             </div>
-            <div class="col-4">
-              <button type="submit" class="btn btn-primary mb-3 w-100 fw-bold">Login</button>
-            </div>
-          </form>
+          </div>
         </div>
 
         <!-- Logs Table -->
@@ -63,48 +68,7 @@
             </tbody>
           </table>
         </div>
-
-          <!-- password confirmation modal -->
-<div class="modal" id="passwordConfirmModal" tabindex="-1" role="dialog" aria-labelledby="passwordConfirmModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="passwordConfirmModalLabel">Confirm Password</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <form id="passwordConfirmForm">
-                <div id="password_confirmation_tab" class="card card-body mt-3 d-none text-center">
-                  <h2 class="fw-bold">Confirm Password</h2>
-                  <p>Deleting all history for user: <span id="user_name"></span></p>
-                  <form id="password_form" class="row g-3 align-self-center my-4" onclick="event.stopPropagation();">
-                      <div class="col-md-6 offset-md-3">
-                          <input type="password" class="form-control" id="password_input" placeholder="Enter your password" required>
-                      </div>
-                      <div class="col-md-6 offset-md-3">
-                          <button type="submit" class="btn btn-danger">Submit</button>
-                      </div>
-                  </form>
-              </div>
-                  <div class="form-group">
-                      <label for="password" class="col-form-label">Password:</label>
-                      <input type="password" class="form-control" id="password" required>
-                  </div>
-                  <div class="invalid-feedback" id="invalid_password_confirm"></div>
-              </form>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" id="closeModal">Close</button>
-              <button type="button" class="btn btn-primary" id="passwordConfirmButton">Submit</button>
-          </div>
-      </div>
-  </div>
-</div>
-
-        
-        <!-- End of Container -->
+<!-- End of Container -->
     </div>
 
     <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>

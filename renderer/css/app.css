@@ -1,69 +1,77 @@
-/* app.css */
-
-/* Body background color */
+/* Body styles */
 body {
   background-color: #f0f0f0;
+  color: #ffffff; /* change text color to white */
 }
 
 /* Container styles */
 .container {
   margin-top: 3rem;
+  color: #ffffff; /* change text color to white */
 }
 
-/* Radio button styles */
-.form-check-input[type="radio"] {
-  margin-top: 1.5rem;
+/* Tool option styles */
+.tool-option {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffffff; /* change text color to white */
 }
 
-/* Textarea and file input styles */
-.form-textarea {
-  resize: none;
+/* Textarea styles */
+.form-floating textarea,
+.form-control:focus {
+  background-color: #333333;
+  border-color: #333333;
+  color: #ffffff;
 }
 
-#file_extract {
-  border-radius: 0;
+/* File input styles */
+input[type="file"] {
+  background-color: #333333;
+  border-color: #333333;
+  color: #ffffff;
 }
 
 /* Result section styles */
-#div-result {
-  margin-top: 1.5rem;
+.result .form-control {
+  background-color: #333333;
+  border-color: #333333;
+  color: #ffffff;
 }
 
 /* Submit button styles */
-button[type="submit"] {
-  margin-top: 1.5rem;
+button[type="submit"],
+.btn-primary {
+  background-color: #333333;
+  border-color: #333333;
+  color: #ffffff;
+}
+
+/* Hover styles for buttons */
+button[type="submit"]:hover,
+.btn-primary:hover {
+  background-color: #282626;
+  border-color: #272626;
+  color: #ffffff;
 }
 
 /* Card styles */
 .card {
-  background-color: #ffffff;
-  border-color: #e0e0e0;
-}
-
-/* Card body styles */
-.card-body {
-  margin-top: 1.5rem;
+  background-color: #333333;
+  border-color: #333333;
+  color: #ffffff;
 }
 
 /* Card result styles */
 .card .form-control {
-  min-height: 200px;
-}
-
-/* Logo styles */
-img.w-25 {
-  width: 25%;
-}
-
-img.h-35 {
-  height: 35%;
+  background-color: #333333;
+  border-color: #e0e0e0;
+  color: #ffffff;
 }
 
 /* Image container styles */
 #image-container {
-  border: 1px solid #e0e0e0;
-  border-radius: 0.25rem;
-  height: 200px;
+  border: 1px solid #333333;
 }
 
 /* Selected image styles */
@@ -74,14 +82,57 @@ img.h-35 {
 
 /* Label and input styles */
 label.fw-bold {
-  font-weight: bold;
-}
-
-input[type="file"] {
-  border-radius: 0;
+  color: #ffffff;
 }
 
 /* Theme surface background color */
 .theme-bg-surface {
-  background-color: #f0f0f0; 
+  background-color: #0c0b0b; 
 }
+
+#loading-message {
+  color: #333333;
+} 
+
+.hidden {
+  display: none;
+}
+
+/* Logs Table styles */
+#div_prompts {
+  background-color: #333333;
+  color: #ffffff; /* change text color to white */
+}
+
+#div_prompts h2 {
+  color: #ffffff; /* change text color to white */
+}
+
+#tbl_prompts th,
+#tbl_prompts td {
+  color: #ffffff; /* change text color to white */
+}
+
+#tbl_prompts thead th {
+  color: #ffffff; /* change text color to white for table header columns */
+}
+
+#tbl_prompts .spinner-border {
+  color: #ffffff; /* change text color to white */
+}
+
+/* Override Bootstrap table header styles */
+.table thead th {
+  color: #ffffff; /* change text color to white */
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
