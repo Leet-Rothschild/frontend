@@ -10,6 +10,7 @@ if (btn_extract) {
       return; 
     }
 
+    btn_extract.classList.add('loading');
     btn_extract.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
     btn_extract.disabled = true;
 
@@ -24,6 +25,7 @@ if (btn_extract) {
       console.error(error);
       alertMessage("error", "An error occurred while processing the image.");
     } finally {
+      btn_extract.classList.remove('loading');
       btn_extract.innerHTML = 'Extract Text';
       btn_extract.disabled = false;
     }
@@ -51,6 +53,7 @@ if (form_openai) {
       return;
     }
 
+    btn_submit.classList.add('loading');
     btn_submit.innerHTML = '<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Loading...';
     btn_submit.disabled = true;
 
@@ -75,13 +78,14 @@ if (form_openai) {
     const maxLength = 255;
     const trimmedResult = result.substring(0, maxLength);
 
-// Store the prompt with the trimmed result in the database
-const db_response = await window.axios.backendLaravel('post', 'prompts', {
-  text: sentence,
-  result: trimmedResult,
-  tools_type: tools_type
-});
+    // Store the prompt with the trimmed result in the database
+    const db_response = await window.axios.backendLaravel('post', 'prompts', {
+      text: sentence,
+      result: trimmedResult,
+      tools_type: tools_type
+    });
 
+    btn_submit.classList.remove('loading');
     btn_submit.innerHTML = 'Process Text';
     btn_submit.disabled = false;
   };
@@ -101,4 +105,10 @@ function alertMessage(status, sentence) {
       marginTop: "2px"
     }
   });
+}
+
+function adjustResultTextareaHeight() {
+  const resultTextarea = document.getElementById('result-textarea');
+  resultTextarea.style.height = 'auto';
+  resultTextarea.style.height = resultTextarea.scrollHeight + 'px';
 }

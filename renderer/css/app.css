@@ -15,7 +15,7 @@ body {
   text-align: center;
   margin-bottom: 1.5rem;
   color: #ffffff; /* change text color to white */
-}
+} 
 
 /* Textarea styles */
 .form-floating textarea,
@@ -135,4 +135,27 @@ label.fw-bold {
   object-fit: cover;
   z-index: -1;
 }
+    /* Add the following CSS styles */
+    .modal-content {
+      background-color: #f8f9fa;
+      color: #ffffff;
+    }
 
+    .modal-header {
+      background-color: #343a40;
+    }
+
+    .modal-open .modal {
+      overflow: auto;
+    }
+
+    /* Checkmark styles when radio is checked */
+input[type="radio"]:checked {
+  background-color: gray;
+}
+
+/* Styles for submit button when it says Loading */
+button[type="submit"].loading,
+.btn-primary.loading {
+  background-color: gray;
+}

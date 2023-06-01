@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; img-src 'self' data: blob:;"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; img-src 'self' data: blob:;"
-    />
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'"
+/>
+<meta
+    http-equiv="X-Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'"
+/>
     <title>OpenAI Tools</title>
     <link href="./css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="./css/app.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <img class="background-image" src="./images/background.jpg" alt="Background Image">
     <div class="container d-flex flex-column align-items-center justify-content-center">
 
-      <img class="w-25 h-35" src="./images/openai.png">
+      <img class="w-25 h-35" src="./images/openai.png"> 
           
       <form id="form_openai">
         <!-- Tools Type - Top Row -->
@@ -105,16 +105,14 @@
         </div>
 
         <!-- Result -->
-        <div class="card card-body mt-3 d-flex flex-column justify-content-between">
-          <div id="div-result" class="form-floating mt-3 d-none">
-            <textarea class="form-control form-textarea" readonly></textarea>
-            <label class="fw-bold" for="floatingTextarea">Result</label>
-          </div>
+<div class="card card-body mt-3 d-flex flex-column justify-content-between">
+  <div id="div-result" class="form-floating mt-3 d-none">
+    <textarea id="result-textarea" class="form-control form-textarea" style="resize: none;"></textarea>
+    <label class="fw-bold" for="result-textarea">Result</label>
+  </div>
 
-          <button class="btn btn-primary w-25 fw-bold align-self-center mt-3" type="submit">Process Text</button>
-        </div>
-      </form>
-    </div>
+  <button class="btn btn-primary w-25 fw-bold align-self-center mt-3" type="submit">Process Text</button>
+</div>
 
     <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="./js/renderer.js"></script>
